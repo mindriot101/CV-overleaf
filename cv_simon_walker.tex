@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+% \usepackage{showframe}
+\usepackage[a4paper]{geometry}
+	\textheight=800px                    % Saving trees ;-)
+\addtolength{\topmargin}{-30pt}
+\usepackage{url}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newlength{\skillbox}
+\settowidth{\skillbox}{8888888888888888}
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\skillbox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{White}{%
+			\parbox{10em}{%
+			\hfill\color{Black}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+    \sepspace
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Simon Walker}
+\MySlogan{Curriculum Vitae}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Address}{2A Melbourne Road, Coventry}
+\PersonalEntry{Phone}{(+44)7751 012585}
+\PersonalEntry{Mail}{\url{s.r.walker101@googlemail.com}}
+\PersonalEntry{Github}{\url{https://github.com/mindriot101}}
+\PersonalEntry{LinkedIn}{\url{https://www.linkedin.com/in/simon-walker-a5036663}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{Ph.D. in Astrophysics}{Sep 2009 - Sep 2013}{University of
+  Warwick}{\textit{``Analysis and optimisation of ground based transiting
+    exoplanet surveys''}. Through my work with the NGTS prototype, I developed
+  analysis pipelines, with which I characterised the noise properties of the
+  system, and influenced the final design of the instrument. I also applied
+  analysis techniques, such as bootstrapping and regression, to planets found
+  with the WASP project to compute the occurrence rate of Jupiter-like planets.}
+\sepspace
+
+\EducationEntry{MPhys. in Physics}{Sep 2005 - Sep 2009}{University of
+  Warwick}{Achieved a 2:1. This included a project modelling astrophysical
+  events, using C.}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experience}{}
+
+\EducationEntry{Post-doctoral Research Associate}{Jan 2014-present}{University
+  of Warwick, Full-time}{I continued to work on the NGTS project, designing and
+  implementing software for the main analysis pipeline. This included routinely
+  processing ~70GB of data per night to search for extrasolar planets, along
+  with assessment, monitoring and visualisation of the analysis pipeline. I have
+  also been leading a distributed team in the further development of data
+  techniques and tools, involving members in multiple time zones, and
+  coordinating our efforts.}
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Primary \mbox{languages}}{\textsc{Python} (7+ years), \textsc{C/C++} (7+ years), \textsc{SQL} (5 years)}
+\SkillsEntry{Other \mbox{languages}}{\textsc{Rust}, \textsc{HTML}, \textsc{CSS}, \textsc{Javascript}, \LaTeX}
+\SkillsEntry{Libraries}{\textsc{Numpy}, \textsc{Matplotlib}, \textsc{CUDA}, \textsc{Scikit-learn}, \mbox{\textsc{Tensorflow}}}
+\SkillsEntry{Techniques}{MCMC, regression, machine learning, statistics, visualisation}
+\SkillsEntry{Operating systems}{Linux, macOS, BSD}
+
+
+%%% References
+%%% ------------------------------------------------------------
+\NewPart{References}{}
+Available upon request
+\end{document}
